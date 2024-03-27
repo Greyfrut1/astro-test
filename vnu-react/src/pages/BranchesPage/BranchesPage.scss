@@ -1,0 +1,38 @@
+@import '../../helpers';
+
+.branches{
+  padding:50px 0;
+  &-info{
+    display: flex;
+    flex-direction: row;
+    &__img{
+      max-width:243px;
+      height:auto;
+      img{
+        width:100%;
+      }
+    }
+    &__contact{
+      padding:0 15px;
+      &-title{
+        @include fontz(20px,25px,0.02em,capitalize,500,black);
+      }
+    }
+  }
+  &-child-node,
+  &-paragraphs{
+    padding:40px 0;
+  }
+  &-description{
+    .footer-top__bg-inner-form{
+      display: none!important;
+    }
+    strong{
+      padding:10px 0;
+      @include fontz(18px,25px,0.02em,capitalize,500,black);
+    }
+    p {
+      padding:10px 0;
+    }
+  }
+}

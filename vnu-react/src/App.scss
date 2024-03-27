@@ -1,0 +1,345 @@
+@import '_helpers.scss';
+
+body {
+  font-family: $generalFont;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  transition: font-size,
+  padding,
+  margin 0.3s ease-in-out;
+}
+
+main {
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+ul {
+  li {
+    list-style: none;
+  }
+}
+
+a {
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  color: black;
+}
+
+.field-description {
+  p {
+    margin: 1em 0;
+  }
+}
+
+iframe {
+  border: none;
+}
+
+.container {
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.ckeditor-responsive-table {
+  overflow: auto;
+}
+
+table {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-collapse: collapse;
+}
+
+table {
+  display: table;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: $basicGray;
+}
+
+table thead {
+  background: transparent;
+  border-radius: 0.5rem;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+table tbody tr {
+  border-bottom: 1px solid $dark;
+}
+
+table tr {
+  color: black;
+  background-color: transparent;
+}
+
+.ckeditor-responsive-table {
+  table {
+    width: 100%;
+    border: 1px solid $basicGray;
+    border-collapse: collapse;
+
+    @media (max-width: 768px) {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      -ms-overflow-style: -ms-autohiding-scrollbar;
+
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
+        display: block;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tr {
+        border: 1px solid $basicGray;
+      }
+
+      td {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $basicGray;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+      }
+
+      td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      td:before {
+        content: attr(data-title);
+      }
+    }
+  }
+}
+
+table tbody td {
+  height: auto;
+  padding: 1rem 1rem;
+}
+
+td {
+  box-sizing: border-box;
+  text-align: left;
+}
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+table th,
+table th {
+  color: white;
+}
+
+table th {
+  font-size: 0.875rem;
+  font-weight: 575;
+  background: $dark;
+}
+
+th {
+  position: relative;
+  box-sizing: border-box;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  line-height: 1.25rem;
+}
+
+th {
+  display: table-cell;
+  vertical-align: inherit;
+}
+
+.loader-block {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  @include d-flex(row, center, center, nowrap, 0);
+  color: black;
+  font-size: 50px;
+  z-index: 1000;
+
+  img {
+    -webkit-animation: loader-bounce 3s infinite ease-out;
+    animation: loader-bounce 3s infinite ease-out;
+    width: 200px;
+    height: auto;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@keyframes loader-bounce {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right, .align-right {
+  text-align: right;
+}
+
+.back-to-top {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 50px;
+  height: 50px;
+  border: 2px solid $burgundy;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.4s,
+  color 0.3s;
+  z-index: 10;
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    stroke: $burgundy;
+  }
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    animation: fadeIn 0.4s;
+  }
+
+  &.hide {
+    opacity: 0;
+    animation: fadeOut 0.4s;
+  }
+
+  &:hover {
+    background-color: $burgundy;
+
+    .back-to-top__icon {
+      stroke: white;
+    }
+  }
+
+  @media (max-width: $lg) {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    &__icon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  @media (max-width: $sm) {
+    bottom: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

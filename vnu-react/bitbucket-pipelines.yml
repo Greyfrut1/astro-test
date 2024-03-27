@@ -1,0 +1,11 @@
+pipelines:
+  branches:
+    dev:
+      - step:
+          name: Deploy to Dev
+          script:
+            - pipe: atlassian/ssh-run:0.4.1
+              variables:
+                SSH_USER: 'developer'
+                SERVER: '128.140.43.32'
+                COMMAND: 'cd /var/www/vnu-react && git checkout dev && git pull origin dev && . ~/.nvm/nvm.sh && nvm use 20 && npm install && npm run build && echo -e "Done" '

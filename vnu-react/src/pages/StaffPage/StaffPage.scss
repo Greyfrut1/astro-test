@@ -1,0 +1,115 @@
+@import '../../helpers';
+
+.staff {
+  padding: 50px 0;
+
+  img {
+    max-width: 125px;
+    max-height: 165px;
+    width: 100%;
+  }
+
+  &-title {
+    @include fontz(18px, 30px, 0.02em, capitalize, 500, black);
+  }
+
+  &-info {
+    @include d-flex(row, space-between, flex-start, nowrap, 0px);
+
+    &__general {
+      @include d-flex(column, flex-start, flex-start, nowrap, 10px);
+
+      &-position {
+        @include fontz(15px, 30px, 0.02em, capitalize, 400, black);
+      }
+    }
+
+    &__sources {
+      @include d-flex(column, flex-start, flex-start, nowrap, 5px);
+
+
+      &-link {
+        @include d-flex(row, flex-start, center, nowrap, 10px);
+        @include fontz(14px, 15px, normal, none, 400, black);
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  &-wikipedia {
+    padding-top: 20px;
+
+    &__block {
+      &-link {
+        @include fontz(15px, 30px, 0.02em, capitalize, 800, $darkRed);
+      }
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .staff {
+    &-img img {
+      max-width: 200px;
+      height: auto;
+      max-height: 100%;
+    }
+
+    &-title {
+      margin: 10px 0;
+    }
+
+    &-info {
+      @include d-flex(column, space-between, flex-start, nowrap, 20px);
+
+      &__general {
+        @include d-flex(column, flex-start, flex-start, nowrap, 20px);
+
+        &-position {
+          @include fontz(14px, 20px, 0.02em, capitalize, 400, black);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .staff {
+
+    &-img img {
+      max-width: 100%;
+    }
+
+    &-title {
+      @include fontz(18px, 30px, 0.02em, capitalize, 500, black);
+    }
+
+    &-info {
+      &__sources {
+        &-link {
+          @include d-flex(row, flex-start, center, nowrap, 10px);
+          @include fontz(12px, 10px, normal, none, 400, black);
+
+          img {
+            width: 15px;
+            height: 15px;
+          }
+        }
+      }
+    }
+
+    &-wikipedia {
+      padding-top: 20px;
+
+      &__block {
+        &-link {
+          @include fontz(15px, 20px, 0.02em, capitalize, 800, $darkRed);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../helpers';
+
+.not-found {
+  top: 0;
+  height: 100vh;
+  background-color: white;
+  color: black;
+  @include d-flex(column, center, center, nowrap, 0px);
+
+  &__title {
+    @include fontz(80px, 90px, 0.02em, capitalize, 800, black);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  &__description {
+    text-align: center;
+    @include fontz(18px, 35px, 0.01em, uppercase, 500, $burgundy);
+  }
+}
+
+@media(max-width: $lg) {
+  .not-found {
+    &__title {
+      margin-bottom: 20px;
+      @include fontz(60px, 70px, 0.02em, capitalize, 800, black);
+    }
+
+    &__description {
+      @include fontz(16px, 25px, 0.01em, uppercase, 500, $burgundy);
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .not-found {
+    &__title {
+      @include fontz(40px, 40px, 0.02em, capitalize, 800, black);
+    }
+
+    &__description {
+      @include fontz(14px, 25px, 0.01em, uppercase, 500, $burgundy);
+    }
+  }
+}

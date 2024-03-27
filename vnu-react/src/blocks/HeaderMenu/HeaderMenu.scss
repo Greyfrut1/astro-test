@@ -1,0 +1,149 @@
+@import '../../helpers';
+
+.main-menu-block {
+  padding-bottom: 85px;
+}
+
+.main-menu {
+  scroll-behavior: smooth;
+  width: 100%;
+  padding-left: 80px;
+  @include fontz(20px, normal, normal, none, 400, white);
+  max-width: 1440px;
+  max-height: calc(100vh - 180px);
+  position: relative;
+  margin: 0 auto;
+  overflow-y: auto;
+  height: 100%;
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 0 !important;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    background-color: transparent;
+  }
+
+  & {
+    scrollbar-width: none !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: radial-gradient(circle, rgba(11, 2, 4, 1) 0%, rgba(11, 2, 4, 0) 80%);
+    border: 2px solid transparent;
+    width: 0;
+    background: transparent;
+  }
+
+  span {
+    cursor: default;
+  }
+
+  .main-menu__chevron {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 20px;
+    transform: translateY(-50%);
+  }
+
+  li {
+    padding: 25px 40px 25px 0;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.3);
+    max-width: 380px;
+    position: relative;
+
+    a {
+      color: white;
+    }
+  }
+
+  a:hover {
+    color: $darkRed;
+  }
+
+  .element-menu:last-child .level-one, .second-level-item:last-child > li, .third-level-item:last-child {
+    border-bottom: none;
+  }
+
+  .second-level {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    max-width: 380px;
+    width: 100%;
+
+    .second-level-item {
+      & > li {
+        max-width: 380px;
+      }
+    }
+  }
+
+  .third-level {
+    padding-left: 50px;
+    display: none;
+    position: absolute;
+    right: 0;
+    transform: translateX(100%);
+    top: 0;
+    width: 100%;
+
+    & > li {
+      max-width: 380px;
+    }
+  }
+
+  .element-menu {
+    color: white;
+    @media (min-width: 901px) {
+      &:hover {
+        color: $darkRed;
+
+        .second-level {
+          display: block;
+          height: 100%;
+          color: white;
+
+          & .second-level-item:hover {
+            color: $darkRed;
+
+            .third-level {
+              color: white;
+              height: 100%;
+
+              .third-level-item:hover {
+                color: $darkRed;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 1140px) {
+  .main-menu {
+    font-size: 17px;
+    padding-left: 40px;
+    overflow-y: auto;
+
+    li {
+      padding: 20px 0;
+      max-width: 250px;
+    }
+
+    .second-level {
+      max-width: 250px;
+
+      .second-level-item {
+        max-width: 250px;
+      }
+    }
+  }
+}

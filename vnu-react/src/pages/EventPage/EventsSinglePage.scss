@@ -1,0 +1,197 @@
+@import '../../helpers';
+
+.event {
+  &-title {
+    @include fontz(30px, 45px, normal, none, 600, black);
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  &-block {
+    padding: 30px 0;
+    @include d-flex(row, space-between, flex-start, nowrap, 20px);
+  }
+
+  &-share {
+    .share-link {
+      gap: 10px;
+      display: inline-flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+
+      button {
+        width: 50px;
+        height: 50px;
+        background: $ultraLightGray !important;
+      }
+
+      svg {
+        padding: 2px;
+        @include fontz(30px, normal, normal, inherit, 400, $burgundy);
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
+  &-main {
+    padding: 0 50px 0 40px;
+
+    img {
+      max-width: 100%;
+    }
+
+    &__description {
+      @include fontz(14px, 1.5em, normal, inherit, 400, black);
+      padding: 20px 0;
+      overflow-wrap: anywhere;
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      ol {
+        padding-left: 15px;
+      }
+
+      img {
+        margin: 15px 0;
+      }
+
+      a {
+        text-decoration: underline !important;
+      }
+    }
+
+    &__file {
+      display: flex;
+      align-items: center;
+      padding: 5px 0;
+      gap: 10px;
+
+      svg {
+        width: 20px;
+      }
+
+      a {
+        @include fontz(18px, 25px, normal, inherit, 600, black);
+      }
+    }
+  }
+
+  &-info {
+    &__point {
+      padding-bottom: 30px;
+
+      h3 {
+        @include fontz(16px, normal, normal, none, 600, black);
+        border-bottom: 1px solid $borderGray;
+        padding-bottom: 5px;
+      }
+
+      p, a {
+        padding-top: 5px;
+        @include fontz(12px, 20px, normal, none, 500, black);
+      }
+    }
+
+    &__map {
+      width: 515px;
+      height: 365px;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .event {
+    &-title {
+      @include fontz(30px, 35px, normal, none, 600, black);
+    }
+
+    &-block {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: 5% 55% 35%;
+    }
+
+    &-main {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .event {
+    &-title {
+      padding: 0;
+      @include fontz(25px, 35px, normal, none, 600, black);
+      text-align: center;
+    }
+
+    &-block {
+      gap: 5px;
+    }
+
+    &-info {
+      @include d-flex(column-reverse, center, flex-start, nowrap, 10px);
+    }
+
+    &-info__map {
+      height: 250px;
+    }
+
+    &-share {
+      .share-link {
+        button {
+          width: 35px;
+          height: 35px;
+        }
+
+        svg {
+          @include fontz(25px, normal, normal, inherit, 400, $burgundy);
+        }
+      }
+    }
+
+    &-main {
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .event {
+    &-block {
+      grid-template-columns: 100%;
+    }
+
+    &-title {
+      @include fontz(23px, 30px, normal, none, 600, black);
+    }
+
+    &-main__file a {
+      @include fontz(16px, 25px, normal, inherit, 600, black);
+    }
+
+    &-share {
+      @include d-flex(column-reverse, center, flex-start, nowrap, 10px);
+
+      .share-link {
+        flex-direction: row;
+        margin: 10px 0;
+
+        svg {
+          @include fontz(25px, normal, normal, inherit, 400, $burgundy);
+        }
+      }
+    }
+
+    &-info__map {
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import '../../helpers';
+
+.second-menu {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  ul {
+    @include fontz(11px, normal, 0.02em, none, 500, $basicGray);
+    justify-content: space-evenly;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    list-style: none;
+    padding: 0 20px;
+    li:first-child{
+      margin-left: 0;
+    }
+    li:last-child{
+      margin-right: 0;
+    }
+    li {
+      margin: 0 7px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.08)
+      }
+
+      a {
+        overflow-wrap: break-word;
+        color: white;
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          color: $lightRed;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  .second-menu{
+    display: none;
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../helpers";
+
+.button-clear {
+  border: 1px solid $burgundy;
+  background: $burgundy;
+  font-family: $generalFont;
+  border-radius: 6px;
+  width: 75px;
+  height: 33.195px;
+  transition: 0.2s;
+
+  span {
+    @include fontz(12px, normal, normal, none, 400, white);
+  }
+
+  &:hover {
+    span {
+      color: black;
+    }
+
+    transition: 0.2s;
+    background: transparent;
+  }
+
+  @media (max-width: 730px) {
+    border-radius: 0;
+    width: 100%;
+  }
+}
+
+.calendar {
+  position: absolute;
+  top: 38px;
+  @media (max-width: 730px) {
+    top: 101px;
+    left: 20px;
+  }
+}
+
+.show-calendar {
+  padding-left: 8px;
+}

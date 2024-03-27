@@ -1,0 +1,195 @@
+@import '../../helpers';
+
+.subscriber {
+  position: relative;
+  top: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  &-title {
+    @include fontz(32px, 60px, 0.02em, none, 700, white);
+  }
+
+  .error-message {
+    @include fontz(12px, 25px, 0.02em, none, 500, $lightRed);
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 20px 0;
+    border-radius: 5px;
+    padding: 0 10px;
+  }
+
+  .success-message {
+    text-align: center;
+
+    h1 {
+      @include fontz(32px, 40px, 0.02em, none, 700, white);
+      margin-bottom: 40px;
+    }
+
+    &__text {
+      padding: 0 88px;
+      @include fontz(16px, 25px, 0.02em, none, 500, white);
+    }
+  }
+
+  &-text {
+    @include fontz(16px, 25px, 0.02em, none, 500, white);
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 100px;
+  }
+
+  form {
+    max-width: 600px;
+    display: flex;
+    width: 50%;
+    align-items: center;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      input {
+        border: 2px solid $burgundy;
+        border-radius: 7px 0 0 7px;
+        transition: all 0.5s;
+
+        &::placeholder {
+          @include fontz(16px, 5px, 0.02em, none, 600, white);
+        }
+      }
+
+      button {
+        padding: 10px 10px 11px;
+        background: $burgundy;
+        border-color: $burgundy;
+        transition: all 0.5s;
+      }
+    }
+
+    input[type='email'] {
+      background: white;
+      padding: 16px;
+      border-radius: 7px 0 0 7px;
+      border: 2px solid transparent;
+      transition: border 0.5s ease;
+
+      &::placeholder {
+        @include fontz(16px, normal, 0.02em, none, 600, $burgundy);
+      }
+
+      &:hover,
+      &:focus {
+        border-radius: 7px 0 0 7px;
+        transition: all 0.5s;
+
+        &::placeholder {
+          @include fontz(16px, 5px, 0.02em, none, 600, white);
+        }
+      }
+
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    button {
+      background: none;
+      border: 1px solid white;
+      border-radius: 0 7px 7px 0;
+      padding: 10px 10px 11px;
+
+      svg {
+        width: 25px;
+        height: 25px;
+        color: white;
+      }
+
+      &:hover,
+      &:focus {
+        background: $burgundy;
+        transition: all 0.5s;
+      }
+    }
+  }
+
+  .subscriber-from-container {
+    max-width: 900px;
+    width: 100%;
+  }
+}
+
+@media (max-width: $sm) {
+  .subscriber {
+    &-title {
+      @include fontz(25px, 30px, 0.02em, none, 700, white);
+    }
+
+    &-text {
+      p {
+        margin: 0;
+        @include fontz(14px, 20px, 0.02em, none, 500, white);
+      }
+
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    form {
+      width: 80%;
+
+      input[type='email'] {
+        &::placeholder {
+          @include fontz(14px, normal, 0.02em, none, 600, $burgundy);
+        }
+      }
+    }
+
+    .success-message {
+      h1 {
+        @include fontz(20px, 20px, 0.02em, none, 700, white);
+        margin-bottom: 10px;
+      }
+
+      &__text {
+        padding: 0 20px;
+        @include fontz(14px, 15px, 0.02em, none, 500, white);
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .subscriber {
+    top: 25%;
+
+    &-title {
+      @include fontz(20px, 30px, 0.02em, none, 700, white);
+    }
+
+    form {
+      width: 100%;
+      justify-content: center;
+
+      input[type='email'] {
+        padding: 10px;
+
+        &::placeholder {
+          @include fontz(14px, normal, 0.02em, none, 600, $burgundy);
+        }
+      }
+
+      &:hover,
+      &:focus {
+        button {
+          padding: 5px;
+        }
+      }
+
+      button {
+        padding: 5px;
+      }
+    }
+  }
+}

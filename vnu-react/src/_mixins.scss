@@ -1,0 +1,43 @@
+@import 'variables';
+
+@mixin cuttext {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@mixin fontz($fs, $lh, $ls, $tt, $fw, $cl) {
+  font-size: $fs;
+  line-height: $lh;
+  letter-spacing: $ls;
+  text-transform: $tt;
+  font-weight: $fw;
+  color: $cl;
+}
+
+@mixin underline-hover($color) {
+  background-image: linear-gradient($color, $color);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size:
+    0 1px,
+    auto;
+  transition: background-size 0.3s;
+  &:hover {
+    background-size:
+      100% 1px,
+      auto;
+    border-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+  }
+}
+
+@mixin d-flex($direction, $justify, $align, $wrap, $gap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  gap: $gap;
+}

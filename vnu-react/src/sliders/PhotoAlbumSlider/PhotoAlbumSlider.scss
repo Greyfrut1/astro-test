@@ -1,0 +1,100 @@
+@import '../../helpers';
+
+.photoalbums-block {
+  &__slider {
+    &__item {
+      height: 500px;
+      position: relative;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 82%;
+      }
+    }
+
+    .slick-next,
+    .slick-prev {
+      z-index: 2;
+      line-height: 0.4;
+      cursor: pointer;
+
+      &:before {
+        color: white !important;
+        font-size: 40px;
+      }
+    }
+
+    .slick-next {
+      right: 10px;
+
+      &:before {
+        content: '\203A';
+      }
+    }
+
+    .slick-prev {
+      left: 10px;
+
+      &:before {
+        content: '\2039';
+      }
+    }
+
+    &__title {
+      background-color: #561111;
+      height: 18%;
+      padding: 8px;
+      text-align: center;
+
+      &__cut {
+        color: white;
+        @include cuttext;
+        -webkit-line-clamp: 3;
+
+        a {
+          @include underline-hover(white);
+          @include fontz(18px, normal, normal, none, 500, white);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .photoalbums-block {
+    &__slider {
+      &__item {
+        height: 430px;
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .photoalbums-block {
+    &__slider {
+      &__item {
+        height: 410px;
+      }
+
+      &__title {
+        bottom: 15px;
+
+        &__cut {
+          -webkit-line-clamp: 2;
+
+          a {
+            @include fontz(16px, normal, normal, none, 500, white);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px), (max-width: $md), (max-width: $sm) {
+  .photoalbums-block__slider__item {
+    height: 340px;
+  }
+}

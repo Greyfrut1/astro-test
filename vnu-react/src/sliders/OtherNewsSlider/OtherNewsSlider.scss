@@ -1,0 +1,45 @@
+@import '../../helpers';
+
+.other-news {
+  margin: 10px 0 30px;
+
+  &__title {
+    @include fontz(25px, 35px, normal, none, 600, black);
+    margin-bottom: 20px;
+  }
+
+  &__slider {
+    &-item {
+      padding-right: 10px;
+
+      &__date {
+        @include fontz(14px, 20px, normal, none, 400, black);
+        margin: 5px 0;
+      }
+
+      &__title {
+        @include fontz(16px, 20px, normal, none, 600, black);
+
+        div {
+          display: inline;
+          @include underline-hover(black);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xxl) {
+  .other-news__slider-item {
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .other-news__slider-item {
+    width: 100% !important;
+  }
+}

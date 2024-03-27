@@ -1,0 +1,84 @@
+@import '../../helpers';
+
+.poll-result-block {
+  &__total {
+    @include fontz(15px, 15px, normal, none, 600, black);
+    margin-bottom: 15px;
+  }
+
+  &__choice {
+    margin-bottom: 15px;
+    @include fontz(13px, 15px, normal, none, 400, black);
+
+    &-range {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      row-gap: 7px;
+
+      input[type='range'] {
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
+      }
+
+      /* Styles for Firefox */
+      input[type='range']::-moz-range-thumb {
+        border: 2px solid $burgundy;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+      }
+
+      input[type='range']::-moz-range-track {
+        width: 100%;
+        height: 2px;
+        background: #b3b3b3;
+      }
+
+      /* Styles for webkit browsers */
+      input[type='range']::-webkit-slider-thumb {
+        position: relative;
+        top: -4px;
+        border: 2px solid $burgundy;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: white;
+        -webkit-appearance: none;
+      }
+
+      input[type='range']::-webkit-slider-runnable-track {
+        width: 70%;
+        height: 2px;
+        background: #b3b3b3;
+      }
+    }
+  }
+
+  &__button {
+    margin-top: 25px;
+
+    button {
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: $burgundy;
+      @include fontz(14px, 15px, normal, none, 600, white);
+      padding: 10px 15px;
+    }
+
+    text-align: center;
+  }
+}
+
+@media (max-width: $md) {
+  .poll-result-block {
+    &__button {
+      button {
+        @include fontz(12px, 15px, normal, none, 600, white);
+      }
+    }
+  }
+}

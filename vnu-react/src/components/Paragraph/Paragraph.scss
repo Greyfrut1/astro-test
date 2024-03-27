@@ -1,0 +1,277 @@
+@import '../../helpers';
+
+.paragraphs {
+  padding-top: 30px;
+
+  &-video {
+    iframe {
+      width: 100%;
+      height: 600px;
+    }
+  }
+}
+
+.section-wrapper {
+  margin-bottom: 12px;
+
+  .section {
+    display: flex;
+    padding: 15px 12px;
+    border: 1px solid $borderGray;
+    border-radius: 3px;
+    align-items: center;
+    cursor: pointer;
+
+    .section-title {
+      @include fontz(18px, 24px, normal, none, 500, black);
+      margin-left: 17px;
+    }
+  }
+
+  // subsection hide by default.
+  .subsection-wrapper {
+    background: white;
+    padding: 10px 52px 20px;
+    border: 1px solid $borderGray;
+    display: none;
+  }
+
+  // display subsection with active options.
+  .subsection-wrapper-active {
+    margin-top: 15px;
+    display: block;
+    -webkit-animation: displayNone 1s;
+    animation: displayNone 1s;
+  }
+}
+
+// keyframe for animation display none to block.
+@keyframes displayNone {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+:root {
+  --plus-color: #{$darkRed};
+  --plus-icon-size: #{$plusIconSize};
+}
+
+.plus {
+  border-radius: 100%;
+  background: transparent;
+
+  width: var(--plus-icon-size);
+  height: var(--plus-icon-size);
+  position: relative;
+}
+
+.plus:hover {
+  cursor: pointer;
+}
+
+.plus:before {
+  transition: all ease 0.4s;
+  content: '';
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: calc(var(--plus-icon-size) / 2);
+  height: 1px;
+  margin-left: calc(var(--plus-icon-size) / -4);
+  margin-top: calc((var(--plus-icon-size) / 40) - 1);
+  background: var(--plus-color);
+}
+
+.plus:after {
+  transition: all ease 0.4s;
+  content: '';
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  width: 1px;
+  height: calc(var(--plus-icon-size) / 2);
+  margin-left: calc((var(--plus-icon-size) / 40) - 1);
+  margin-top: calc(var(--plus-icon-size) / -4);
+  background: var(--plus-color);
+}
+
+.open .plus {
+  box-shadow: 0 1px 40px rgba(175, 212, 237, 0.3);
+}
+
+.open .plus:before {
+  opacity: 0;
+  animation: rotateIcon 0.4s linear;
+}
+
+.open .plus:after {
+  transition: all ease 0.4s;
+  transform: rotate(90deg);
+}
+
+// styles for items in paragraph dropdown
+.subsection-item {
+  .dropdown {
+    @include fontz(14px, 24px, normal, none, 500, black);
+    margin-top: 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  a span {
+    text-decoration: underline;
+  }
+
+  .dropdown_info {
+    display: none;
+  }
+
+  .dropdown_info-active {
+    display: block;
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+}
+
+// styles for paragraph dropdown arrow image
+.dropdown-arrow {
+  padding-right: 10px;
+
+  img {
+    transition: transform 0.3s ease;
+    width: 7px;
+    height: 13px;
+    max-width: none;
+  }
+}
+
+// added animation for arrow image
+.dropdown-arrow-active {
+  img {
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
+  }
+}
+
+.dropdown-title {
+  font-size: 16px;
+  line-height: 18px;
+  color: #000;
+}
+
+// styles for paragraphs: File, Link
+.dropdown-item {
+  margin-top: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  line-height: 16px;
+  color: #000;
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: $darkRed;
+    }
+  }
+}
+
+.gdoc-filename {
+  margin-top: 0;
+  margin-bottom: 1.5em;
+  font-style: italic;
+  font-family: serif;
+  font-size: 80%;
+  text-align: center;
+}
+
+.document_body {
+  p {
+    margin: 1em 0;
+    hyphens: auto;
+    word-break: break-word;
+  }
+
+
+  a {
+    color: $darkRed;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    padding-left: 15px;
+
+    li {
+      list-style-type: circle;
+    }
+  }
+
+  img {
+    margin: 15px 0;
+    display: inline-block;
+    object-fit: cover;
+  }
+}
+
+
+@media(max-width: $md) {
+  .full-project__description {
+    h2 {
+      @include fontz(18px, 24px, normal, none, 500, black);
+    }
+
+    h3 {
+      @include fontz(16px, 24px, normal, none, 500, black);
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+  .section-wrapper {
+    .subsection-wrapper-active {
+      padding: 20px;
+    }
+
+    .section {
+      .section-title {
+        @include fontz(16px, 24px, normal, none, 500, black);
+      }
+
+      .dropdown-title {
+        @include fontz(16px, 24px, normal, none, 500, black);
+      }
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .full-project__description {
+    h2 {
+      font-size: 16px;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+  .section {
+    .dropdown-title {
+      @include fontz(14px, 17px, normal, none, 500, black);
+    }
+  }
+}

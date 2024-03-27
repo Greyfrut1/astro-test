@@ -1,0 +1,17 @@
+@import "../../variables";
+
+.vnu-pager {
+  margin-bottom: 50px;
+}
+
+.MuiPagination-root {
+  margin: 20px 0;
+
+  .MuiPagination-ul {
+    display: flex;
+    justify-content: center;
+    svg{
+      width: 20px;
+    }
+  }
+}

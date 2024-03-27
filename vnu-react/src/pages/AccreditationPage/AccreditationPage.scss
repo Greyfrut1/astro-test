@@ -1,0 +1,82 @@
+@import "../../helpers";
+
+.accreditation-page__container {
+  .accreditation-page__title {
+    text-align: center;
+    font-size: 34px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+  }
+
+  .accreditation-page__items-block {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 30px;
+    row-gap: 20px;
+    .accreditation-page__item {
+      padding: 10px 0 25px;
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        opacity: 0;
+        height: 3px;
+        transition: all .4s;
+        background-color: $darkRed;
+      }
+      &:hover::after{
+        width: 100%;
+        opacity: 1;
+      }
+      .accreditation-page__item-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 600;
+      }
+      .accreditation-page__link-block{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        .read-more{
+          padding: 12px 25px;
+          transition: .1s ease;
+          background-color: $darkRed;
+          color: white;
+          border: 1px solid $darkRed;
+          font-style: normal;
+          font-weight: 600;
+          &:hover{
+            background-color: white;
+            color: $darkRed;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: $md) {
+  .accreditation-page__container {
+    .accreditation-page__title{
+      font-size: 25px;
+    }
+    .accreditation-page__items-block {
+      padding-top: 10px;
+      row-gap: 10px;
+      .accreditation-page__item {
+        .accreditation-page__item-title {
+          font-size: 20px;
+        }
+
+        .accreditation-page__link-block {
+          .read-more {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}

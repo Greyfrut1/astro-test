@@ -1,0 +1,27 @@
+@import '../../helpers';
+
+.type-filter__select{
+  padding-left: 10px;
+  text-align: left;
+  border-radius: 6px;
+  border: 2px solid #561111;
+  font-family: Montserrat,serif;
+  width: 160px;
+  height: 33px;
+  font-size: 14px;
+  background: transparent;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-appearance: none;
+  background-image: url('../../assets/arrow-down-338-svgrepo-com.svg');
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  background-position: calc(100% - 8px);
+  @media (max-width: 730px) {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid $burgundy;
+    width: 100%;
+  }
+}

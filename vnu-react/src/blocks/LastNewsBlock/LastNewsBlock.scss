@@ -1,0 +1,255 @@
+@import '../../helpers';
+
+.last-news {
+  .slick-dots {
+    bottom: -35px;
+
+    li {
+      margin: 0 5px !important;
+      width: 10px;
+    }
+
+    li button:before {
+      font-size: 8px;
+      border: 2px solid $burgundy;
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border-radius: 50%;
+      color: transparent;
+    }
+
+    li.slick-active button::before {
+      background: $burgundy;
+    }
+  }
+
+  &__header {
+    padding: 20px 0;
+    @include d-flex(row, space-between, center, nowrap, 0px);
+
+    &-title {
+      @include fontz(25px, normal, normal, uppercase, 600, black);
+    }
+
+    &-right {
+      width: 75%;
+      @include d-flex(row, space-between, center, nowrap, 0px);
+    }
+
+    .modal-button button {
+      padding: 5px 20px;
+      border-radius: 3px;
+      @include fontz(17px, normal, 0.04em, none, 600, $burgundy);
+      border: 1px solid $burgundy;
+      background: transparent;
+
+      &:focus,
+      &:hover {
+        background: $burgundy;
+        color: white;
+      }
+    }
+
+    &-link {
+      @include d-flex(row, flex-start, center, nowrap, 10px);
+      @include fontz(18px, normal, normal, uppercase, 600, black);
+
+      svg {
+        transition: transform 0.3s ease-out;
+      }
+
+      &:hover {
+        svg {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  &__main {
+    &-title {
+      a {
+        @include underline-hover(black);
+      }
+
+      @include fontz(20px, normal, normal, none, 600, black);
+    }
+
+    &-summary {
+      @include fontz(18px, normal, normal, none, 400, black);
+    }
+
+    .read-more {
+      @include d-flex(row, flex-start, center, nowrap, 10px);
+      @include fontz(16px, normal, normal, none, 600, $burgundy);
+
+      svg {
+        transition: transform 0.3s ease-out;
+      }
+
+      &:hover {
+        svg {
+          transform: translateX(5px);
+        }
+      }
+    }
+
+    &-top {
+      @include d-flex(row, flex-start, center, nowrap, 25px);
+
+      &__content {
+        @include d-flex(column, center, flex-start, nowrap, 27px);
+      }
+    }
+
+    &-bottom {
+      margin: 20px 0;
+
+      .last-news__main-title {
+        margin: 10px 0 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1439px) {
+  .last-news {
+    &__main {
+      &-top {
+        img {
+          flex: 1;
+          max-width: calc((100vw / 1.5) - 55px) !important;
+        }
+      }
+
+      &-bottom {
+        .slick-slide img {
+          object-fit: cover;
+          width: 100%;
+        }
+
+        &__item {
+          flex: 1;
+          max-width: calc((100vw / 3) - 40px) !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .last-news {
+    &__main {
+      &-title {
+        @include fontz(19px, normal, normal, none, 600, black);
+      }
+
+      &-summary {
+        @include fontz(16px, normal, normal, none, 400, black);
+      }
+
+      &-link {
+        a {
+          @include fontz(14px, normal, normal, none, 600, $burgundy);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .last-news {
+    &__main {
+      &-top {
+        display: none;
+      }
+
+      &-bottom {
+        margin-bottom: 35px;
+
+        .slick-slide img {
+          object-fit: cover;
+          width: 100%;
+        }
+
+        &__item {
+          flex: 1;
+          max-width: calc((100vw / 2) - 40px) !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .last-news {
+    &__header {
+      padding: 20px 0;
+      @include d-flex(column, center, center, nowrap, 20px);
+
+      &-title {
+        @include fontz(20px, normal, normal, uppercase, 600, black);
+      }
+
+      &-right {
+        @include d-flex(row, space-between, center, nowrap, 0px);
+        width: 100%;
+      }
+
+      .modal-button button {
+        padding: 5px 15px;
+        @include fontz(14px, normal, 0.04em, none, 600, $burgundy);
+      }
+
+      &-link {
+        svg {
+          width: 25px;
+        }
+
+        a {
+          @include fontz(12px, normal, normal, uppercase, 600, black);
+        }
+      }
+    }
+
+    &__main {
+      &-title {
+        @include fontz(16px, normal, normal, none, 600, black);
+      }
+
+      &-link a {
+        @include fontz(14px, normal, normal, none, 600, $burgundy);
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .last-news {
+    &__header-link {
+      font-size: 14px;
+    }
+
+    &__main {
+      &-title {
+        @include fontz(16px, normal, normal, none, 600, black);
+      }
+
+      &-summary {
+        @include fontz(14px, normal, normal, none, 400, black);
+      }
+
+      &-link a {
+        @include fontz(14px, normal, normal, none, 600, $burgundy);
+      }
+
+      &-bottom {
+        &__item {
+          flex: 1;
+          max-width: calc(100vw - 40px) !important;
+        }
+      }
+    }
+  }
+}

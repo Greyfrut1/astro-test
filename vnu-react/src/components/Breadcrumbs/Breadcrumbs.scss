@@ -1,0 +1,54 @@
+@import "../../helpers";
+
+.breadcrumbs {
+  max-width: 1920px;
+  padding: 20px 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  a {
+    @include fontz(16px, 35px, normal, none, 400, $dark);
+    display: block;
+    border-left: 1px solid $dark;
+    padding: 0 11px;
+    max-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    span {
+      white-space: nowrap;
+    }
+
+    &:first-child {
+      border-left: none;
+      min-width: fit-content;
+    }
+  }
+
+  img {
+    width: 24px;
+    display: block;
+  }
+}
+
+@media (max-width: 1140px) {
+  .breadcrumbs {
+    padding: 20px 20px;
+  }
+}
+
+@media (max-width: 775px) {
+  .breadcrumbs {
+    padding: 10px 5px;
+
+    a {
+      font-size: 14px;
+      padding: 0 5px;
+    }
+
+    img {
+      width: 20px;
+    }
+  }
+}

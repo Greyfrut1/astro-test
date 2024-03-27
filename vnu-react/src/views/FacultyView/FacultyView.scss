@@ -1,0 +1,139 @@
+@import '../../helpers';
+
+.faculty-view {
+  @include d-flex(row, space-around, flex-start, wrap, 50px);
+  padding: 50px 15px;
+
+  &__item {
+    max-width: 500px;
+    display: flex;
+    column-gap: 20px;
+    position: relative;
+    padding: 10px;
+    box-sizing: content-box;
+    flex-shrink: 0;
+
+    &::before {
+      content: " ";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border: 0 solid white;
+      bottom: -10px;
+      right: -1px;
+      border-bottom: 3px solid $darkRed;
+      border-right: 3px solid $darkRed;
+      transition: all .5s;
+    }
+
+    &::after {
+      content: " ";
+      width: 10px;
+      height: 10px;
+      position: absolute;
+      border: 0 solid white;
+      top: -10px;
+      left: -1px;
+      border-top: 3px solid $darkRed;
+      border-left: 3px solid $darkRed;
+      transition: all .5s;
+    }
+
+    &:hover {
+      &::before {
+        z-index: -1;
+        width: calc(100% + 15px);
+        height: calc(100% + 32px);
+      }
+
+      &::after {
+        z-index: -1;
+        width: calc(100% + 15px);
+        height: calc(100% + 32px);
+      }
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: column;
+      row-gap: 13px;
+
+      .contacts {
+        display: flex;
+        flex-direction: column;
+        row-gap: 13px;
+
+        a {
+          font-size: 14px;
+          line-height: 16px;
+          margin: 0;
+        }
+      }
+    }
+
+    &-img-link {
+      display: block;
+      flex-shrink: 0;
+      height: 122px;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+}
+
+@media (max-width: 1070px) {
+  .faculty-view {
+    justify-content: center;
+
+    &__item {
+      flex: 1 100%;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .faculty-view {
+    padding: 20px 15px;
+
+    .faculty-view__item {
+      flex-direction: column;
+      border: 2px solid $darkRed;
+
+      &:before, &:after {
+        display: none;
+      }
+
+      .faculty-view__item-img-link {
+        img {
+          display: block;
+          margin: 0 auto;
+        }
+      }
+
+      .faculty-view__item-right {
+        margin-top: 10px;
+
+        .contacts {
+          a {
+            font-size: 12px;
+          }
+
+          row-gap: 10px;
+        }
+
+        svg {
+          min-width: 15px;
+          width: 15px;
+        }
+
+        .faculty-view__item-title {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+@import '../../../helpers';
+
+.footer-menu {
+  @include d-flex(column, flex-start, flex-start, wrap, 30px);
+  max-height: 450px;
+  padding: 20px 35px 20px 0;
+
+  a {
+    color: white;
+    cursor: pointer;
+  }
+
+  .arrow-icon {
+    display: none;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  .level-one {
+    position: relative;
+
+    &__link {
+      @include fontz(18px, 40px, normal, none, 600, white);
+    }
+  }
+
+  .second-level {
+    max-width: 300px;
+    width: 100%;
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    &__link {
+      @include underline-hover(white);
+      @include fontz(14px, 27px, 0.02em, none, 500, white);
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+@media (max-width: $xxl) {
+  .footer-menu {
+    gap: 16px;
+    padding: 20px 20px 20px 0;
+  }
+}
+
+@media (max-width: $xl) {
+  .footer-menu {
+    align-content: space-around;
+    padding: 20px 20px 20px 0;
+
+    .level-one {
+      &__link {
+        @include fontz(16px, 35px, normal, none, 600, white);
+      }
+    }
+
+    .second-level {
+      li {
+        margin-bottom: 7px;
+      }
+
+      &__link {
+        @include fontz(12px, 15px, normal, none, 500, white);
+      }
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .footer-menu {
+    padding: 35px 0;
+    width: 50%;
+    margin-right: 10px;
+    @include d-flex(column, center, flex-start, nowrap, 14px);
+    max-height: 100%;
+
+    .arrow-icon {
+      display: block;
+
+      svg {
+        width: 20px;
+      }
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+
+      .level-one {
+        position: relative;
+        margin: 0;
+        padding: 0 10px;
+        cursor: pointer;
+        display: flex;
+        transition: all 0.3s ease;
+        flex-direction: column;
+        align-items: flex-start;
+        color: white;
+
+        &.with-children {
+          padding: 0;
+        }
+
+        .level-one__link {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          @include fontz(18px, normal, normal, none, 600, white);
+
+          .arrow-icon {
+            display: flex;
+            align-items: center;
+            margin-left: 5px;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+
+            &.active {
+              transform: rotate(90deg);
+            }
+          }
+        }
+      }
+
+      .second-level {
+        display: none;
+
+        &.show {
+          display: block;
+        }
+
+        .sub-menu-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          li {
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+
+            .second-level__link {
+              @include fontz(14px, 20px, normal, none, 500, white);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .footer-menu {
+    .menu-list {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .footer-menu {
+    width: 100%;
+    padding: 20px 25px 10px;
+
+    .menu-list {
+      .level-one {
+        .level-one__link {
+          @include fontz(15px, normal, normal, none, 600, white);
+        }
+      }
+
+      .second-level {
+        .sub-menu-list {
+          li {
+            .second-level__link {
+              @include fontz(12px, 20px, normal, none, 500, white);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .footer-menu {
+    .menu-list {
+      .level-one {
+        .level-one__link {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

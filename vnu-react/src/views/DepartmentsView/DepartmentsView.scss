@@ -1,0 +1,194 @@
+@import "../../helpers";
+
+.departments-page {
+  .departments-page__header {
+    background-color: #F0F0F0;
+    padding: 20px 10px 25px 10px;
+
+    .departments-page__title {
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      margin-bottom: 10px;
+      border-bottom: 1px solid white;
+      padding-bottom: 10px;
+    }
+
+    .departments-page__filter-form {
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      column-gap: 10px;
+      row-gap: 10px;
+
+      .departments-page__faculties-filter {
+        max-width: 566px;
+        width: 100%;
+        position: relative;
+        background-color: white;
+        border-radius: 6px;
+        border: 1px solid $burgundy;
+
+        select {
+          width: 100%;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          color: rgba(0, 0, 0, 0.50);
+          padding: 14px;
+          -moz-appearance: none; /* Firefox */
+          -webkit-appearance: none; /* Safari and Chrome */
+          appearance: none;
+          background-color: transparent;
+          border: none;
+
+          &:focus-visible {
+            border: none;
+            outline: none
+          }
+        }
+
+        option {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+        }
+
+        svg {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+
+          path {
+            color: $burgundy;
+          }
+        }
+      }
+
+      .departments-page__search {
+        max-width: 566px;
+        width: 100%;
+        position: relative;
+        background-color: white;
+        border-radius: 6px;
+        border: 1px solid $burgundy;
+        display: flex;
+
+        input {
+          background-color: transparent;
+          width: 100%;
+          height: 100%;
+          border: none;
+          padding: 10px 10px 10px 50px;
+          color: rgba(0, 0, 0, 0.50);
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          max-width: 460px;
+          flex: 2;
+
+          &:focus-visible {
+            border: none;
+            outline: none
+          }
+        }
+
+        svg {
+          position: absolute;
+          left: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        button {
+          flex: 1;
+          max-width: 110px;
+          border: none;
+          color: #FFF;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          width: 100px;
+          background-color: $burgundy;
+          border-bottom-right-radius: 4px;
+          border-top-right-radius: 4px;
+        }
+      }
+    }
+  }
+
+  .departments-page__result-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 50px 15px;
+
+    .departments-page__result-item {
+      border-bottom: 1px solid $burgundy;
+      padding-bottom: 20px;
+
+      .departments-page__result-title {
+        color: #000;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 16px;
+      }
+
+      .departments-page__result-faculty {
+        color: #000;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 16px;
+      }
+
+      .departments-page__result-link {
+        color: $burgundy;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        svg {
+          margin-left: 10px;
+          transition: transform .3s ease-out;
+        }
+        &:hover{
+          svg{
+            transform: translateX(5px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 775px) {
+  .departments-page .departments-page__header .departments-page__filter-form {
+    flex-direction: column-reverse;
+
+    .departments-page__search {
+      max-width: none;
+
+      input {
+        max-width: none;
+      }
+    }
+
+    .departments-page__faculties-filter {
+      max-width: none;
+
+      select {
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import '../../helpers';
+
+.general-info {
+  &__title {
+    @include fontz(23px, 25px, 0.02em, none, 500, black);
+    text-align: center;
+  }
+
+  &__description {
+    p, h2, h3 {
+      @include fontz(16px, 25px, 0.02em, none, 400, black);
+    }
+
+    strong {
+      @include fontz(16px, 25px, 0.02em, none, 600, black);
+    }
+
+    a {
+      @include fontz(16px, 25px, 0.02em, none, 400, $burgundy);
+      text-decoration: underline;
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .general-info {
+    margin: 50px 0;
+
+    &__title {
+      @include fontz(18px, 25px, 0.02em, none, 500, black);
+    }
+
+    &__description {
+      p, h2, h3 {
+        @include fontz(14px, 25px, 0.02em, none, 400, black);
+      }
+
+      strong {
+        @include fontz(14px, 25px, 0.02em, none, 600, black);
+      }
+
+      a {
+        @include fontz(14px, 25px, 0.02em, none, 400, $burgundy);
+      }
+    }
+  }
+}

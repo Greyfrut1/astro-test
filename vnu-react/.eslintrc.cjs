@@ -1,0 +1,31 @@
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    'eslint:recommended',
+    'airbnb', // This includes react/recommended, react-hooks/recommended, jsx-a11y/recommended, and import/recommended plugins.
+    'plugin:react/jsx-runtime',
+    'plugin:prettier/recommended',
+  ],
+  ignorePatterns: ['dist'],
+  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
+  settings: { react: { version: '18.2' } },
+  plugins: ['react-refresh', 'filenames'],
+  rules: {
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'prettier/prettier': 'error',
+    camelcase: 'off',
+    radix: 'off',
+    'no-plusplus': 'off',
+    'no-param-reassign': 'off',
+    'no-nested-ternary': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/forbid-prop-types': 'off',
+    'react/require-default-props': 'off',
+    'react/no-array-index-key': 'off',
+    'react/no-danger': 'off',
+    'react/jsx-no-duplicate-props': ['error', { ignoreCase: false }],
+    'filenames/match-exported': [2, ['kebab', 'pascal']],
+  },
+};

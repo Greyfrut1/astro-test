@@ -1,0 +1,192 @@
+@import '../../helpers';
+
+.poll-item {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid $borderGray;
+
+  &__question {
+    margin-bottom: 10px;
+    @include fontz(16px, 24px, normal, none, 400, $basicGray);
+    padding-bottom: 10px;
+  }
+
+  .error-message {
+    @include fontz(12px, 20px, normal, none, 400, $burgundy);
+  }
+
+  &__votes-block {
+    max-height: 315px;
+    overflow-y: auto;
+  }
+
+  &__choice-item {
+    display: flex;
+    padding: 5px 10px;
+    gap: 5px;
+    background: $ultraLightGray;
+    margin-bottom: 15px;
+
+    label {
+      padding: 5px 0;
+      @include fontz(14px, 20px, normal, none, 400, black);
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  &__cancel-vote {
+    background: $burgundy;
+    border: 1px solid transparent;
+    @include fontz(14px, 15px, normal, none, 600, white);
+    transition: width 0.3s ease;
+    padding: 10px 5px;
+    border-radius: 3px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .submission-success-message {
+    text-align: center;
+  }
+
+  //Button.
+  &__button {
+    margin-top: 25px;
+
+    button {
+      display: inline-block;
+      border: 1px solid transparent;
+      transition: width 1s ease;
+    }
+  }
+
+  &__form-submit {
+    background: $darkRed;
+    padding: 15px 0 15px 30px;
+    text-align: left;
+    @include fontz(16px, 15px, normal, none, 600, white);
+    position: absolute;
+    z-index: 2;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  }
+
+  &__switch {
+    background: $burgundy;
+    text-align: right;
+    width: 100%;
+    padding: 15px 30px 15px 0;
+    @include fontz(16px, 15px, normal, none, 600, white);
+    position: relative;
+
+    &:hover {
+      .poll-item__form-submit {
+        width: 10%;
+      }
+    }
+  }
+}
+
+.poll-item__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+@media (max-width: $xl) {
+  .polls-page, .poll-block {
+    .poll-item {
+      height: 430px;
+      padding: 20px 15px;
+
+      &__votes-block {
+        max-height: 280px;
+      }
+
+
+      &__question {
+        @include fontz(16px, 20px, normal, none, 400, $basicGray);
+      }
+
+      &__choice-item {
+        margin-bottom: 5px;
+
+        label {
+          padding: 5px;
+          @include fontz(12px, 15px, normal, none, 400, black);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $lg) {
+  .polls-page, .poll-block {
+    .poll-item {
+      &__question {
+        @include fontz(16px, 20px, normal, none, 400, $basicGray);
+      }
+
+      &__choice-item {
+        label {
+          padding: 5px 0;
+          @include fontz(14px, 15px, normal, none, 400, black);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .polls-page, .poll-block {
+    .poll-item {
+
+      &__votes-block {
+        max-height: 205px;
+      }
+
+      &__question {
+        @include fontz(14px, 20px, normal, none, 400, $basicGray);
+      }
+
+      &__choice-item {
+        label {
+          padding: 0;
+          @include fontz(12px, 15px, normal, none, 400, black);
+        }
+      }
+
+      &__form-submit {
+        padding: 8px 0;
+        @include fontz(12px, 15px, normal, none, 600, white);
+      }
+
+      &__switch {
+        padding: 8px 15px;
+        @include fontz(12px, 15px, normal, none, 600, white);
+      }
+
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .polls-page, .poll-block {
+    .poll-item {
+      &__form-submit {
+        padding: 5px 0;
+        @include fontz(10px, 15px, normal, none, 600, white);
+      }
+
+      &__switch {
+        padding: 5px;
+        @include fontz(10px, 15px, normal, none, 600, white);
+      }
+    }
+  }
+}

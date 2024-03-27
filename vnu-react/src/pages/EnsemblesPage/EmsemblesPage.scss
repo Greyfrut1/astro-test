@@ -1,0 +1,62 @@
+@import '../../helpers';
+
+.ensembles {
+  &-title {
+    @include fontz(25px, 25px, normal, capitalize, 600, black);
+    text-align: center;
+  }
+
+  &-content {
+    @include d-flex(row, flex-start, flex-start, nowrap, 40px);
+    padding: 50px 0;
+
+    &__img {
+      width: 30%;
+
+      img {
+        max-width: 500px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__text {
+      width: 70%;
+      @include fontz(18px, 25px, 0.02em, none, 400, black);
+    }
+  }
+}
+
+
+@media(max-width: $lg) {
+  .ensembles {
+    &-content {
+      @include d-flex(column, flex-start, flex-start, nowrap, 40px);
+      padding: 30px 0;
+
+      &__img {
+        width: 100%;
+        text-align: center;
+      }
+
+      &__text {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .ensembles {
+    &-title {
+      margin-top: 10px;
+      @include fontz(20px, 20px, normal, capitalize, 600, black);
+    }
+
+    &-content {
+      &__text {
+        @include fontz(16px, 25px, 0.02em, none, 400, black);
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+@import '../../helpers';
+
+.faculty {
+  padding: 50px 10px;
+
+  &__information {
+    @include d-flex(column, space-between, flex-start, nowrap, 20px);
+  }
+
+  .faculty__top-block {
+    @include d-flex(row, space-between, flex-start, nowrap, 20px);
+    padding-bottom: 30px;
+
+    .faculty__info-block {
+      display: flex;
+      column-gap: 20px;
+      max-width: 500px;
+
+      .faculty__info-block-head {
+        min-width: fit-content;
+      }
+
+      .faculty__img {
+        flex-shrink: 0;
+        width: 122px;
+        height: fit-content;
+
+        img {
+          height: auto;
+          flex-shrink: 0;
+        }
+      }
+
+      .faculty__information {
+        .faculty__title {
+          @include fontz(18px, 21px, normal, none, 500, black);
+        }
+      }
+    }
+
+    .staff-teaser {
+      max-width: 500px;
+      @media (max-width: $sm) {
+        &__img{
+          text-align: center;
+        }
+      }
+      img {
+        width: 124px;
+        height: auto;
+      }
+
+      .staff-teaser__information {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        margin-top: 10px;
+
+        .staff-teaser__name {
+          @include fontz(18px, 21px, normal, none, 500, black);
+        }
+
+        .staff-teaser__position {
+          @include fontz(15px, 21px, normal, none, 500, black);
+        }
+      }
+    }
+  }
+
+  .contacts-item svg{
+    min-width: 24px;
+    width: 24px;
+  }
+
+  .paragraphs {
+    padding: 0;
+  }
+
+  .departments-view {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding-top: 15px;
+
+    .departments-view__item {
+      .departments-view__item-title {
+        @include fontz(18px, normal, normal, none, 600, black);
+        @include underline-hover(black);
+      }
+
+      .departments-view__item-block {
+        margin-top: 10px;
+
+        .departments-view__item-image-block {
+          min-width: fit-content;
+          width: fit-content;
+          float: left;
+          margin-right: 7px;
+        }
+
+        .departments-view__item-head-name {
+          @include fontz(18px, normal, normal, none, 600, black);
+          @include underline-hover(black);
+        }
+
+        .departments-view__item-head-position {
+          @include fontz(15px, 21px, normal, none, 600, $darkRed);
+          margin: 20px 0 10px;
+        }
+      }
+    }
+  }
+
+  .social_media {
+    margin-top: 20px;
+    @include d-flex(row, flex-start, center, nowrap, 12px);
+
+    svg {
+      width: 30px;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .faculty .faculty__top-block {
+    flex-direction: column;
+
+    .faculty__info-block {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .faculty {
+    .contacts {
+      gap: 7px;
+      .contacts-item {
+        & > span{
+          gap: 5px;
+        }
+        a {
+          font-size: 12px;
+        }
+
+        svg {
+          min-width: 20px;
+          width: 20px;
+        }
+      }
+    }
+
+    .faculty__top-block{
+      align-items: normal;
+      .faculty__info-block {
+      flex-direction: column;
+
+      .faculty__info-block-head {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 10px;
+        padding-bottom: 10px;
+
+        img {
+          width: 122px;
+        }
+
+        .faculty__title {
+          text-align: center;
+          @include fontz(18px, 21px, normal, none, 600, black);
+        }
+      }
+    }
+  }
+    .departments-view .departments-view__item .departments-view__item-block {
+      display: flex;
+      flex-direction: column;
+      .departments-view__item-head-name {
+        font-size: 16px;
+      }
+
+      .departments-view__item-head-position {
+        font-size: 14px;
+        margin: 15px 0 5px;
+      }
+
+      .departments-view__item-image-block {
+        width: 100%;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

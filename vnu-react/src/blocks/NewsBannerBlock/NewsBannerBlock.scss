@@ -1,0 +1,130 @@
+@import '../../helpers';
+
+.main-news {
+  @include d-flex(row, space-between, flex-start, nowrap, 20px);
+  @media (max-width: 1199px) {
+    display: block;
+  }
+
+  .date_field {
+    @include fontz(16px, normal, normal, none, 400, white);
+  }
+
+  .teaser_title {
+    @include fontz(18px, normal, normal, none, 700, white);
+
+    a {
+      color: white;
+    }
+  }
+
+  .cover-text {
+    @include d-flex(column, center, flex-start, nowrap, 10px);
+    border-radius: 3px;
+    width: 80%;
+    left: 10%;
+    position: absolute;
+    z-index: 4;
+    background: rgba(86, 17, 17, 0.51);
+  }
+
+  &__right {
+    @include d-flex(column, space-between, flex-start, nowrap, 20px);
+
+    .top {
+      @include d-flex(row, space-between, flex-start, nowrap, 20px);
+
+      .main-news__item .teaser_title {
+        @include cuttext;
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      .cover-text {
+        transition: all 0.4s ease;
+
+        &:hover {
+          transition: all 0.7s ease;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  &__first,
+  &__fourth {
+    .cover-text {
+      bottom: 27px;
+      @include d-flex(column, center, flex-start, nowrap, 11px);
+      padding: 9px 12px;
+    }
+  }
+
+  &__second,
+  &__third {
+    .cover-text {
+      bottom: 17px;
+      padding: 3px 8px;
+      gap: 4px;
+
+      .date_field {
+        font-size: 12px;
+      }
+
+      .teaser_title {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.sliderImageContainer {
+  width: 100%;
+}
+
+.sliderDateContainer {
+  min-height: 117px;
+  @include d-flex(column, flex-start, flex-start, nowrap, 10px);
+  padding: 10px 0 10px 10px;
+  background: $burgundy;
+
+  .teaser_title {
+    @include cuttext;
+    -webkit-line-clamp: 3;
+
+    a {
+      @include underline-hover(white);
+    }
+  }
+}
+
+.main-news {
+  .slick-dots {
+    bottom: -30px;
+
+    li {
+      button:before {
+        font-size: 8px;
+        border: 1px solid $burgundy;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border-radius: 50%;
+        color: transparent;
+        opacity: 1;
+      }
+    }
+
+    li.slick-active button::before {
+      background: $burgundy;
+      color: transparent;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@import '../../helpers';
+
+.albums {
+  &-view {
+    padding:50px 0;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1em 0;
+    padding: 10px;
+    position: relative;
+    max-width: 560px;
+    width: 100%;
+    border-top: 3px solid $darkRed;
+    border-right: 3px solid $darkRed;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+
+    &:hover {
+      transition: .2s ease;
+      border-top: 3px solid transparent;
+      border-right: 3px solid transparent;
+      border-bottom: 3px solid $darkRed;
+      border-left: 3px solid $darkRed;
+    }
+
+    &__img {
+      max-width: 150px;
+    }
+
+    &__title {
+      @include fontz(16px, 25px, normal, uppercase,400, $darkRed);
+      text-decoration: none;
+      max-width: 370px;
+      &:before {
+        content: '\003E';
+        color: black;
+        padding-right:10px;
+      }
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .albums {
+    &-view {
+      justify-content: center;
+    }
+  }
+}
+
+
+@media (max-width: $md) {
+  .albums {
+    &-card {
+      &__title {
+        @include fontz(16px, 25px, 0.02rem, uppercase, 400, $darkRed);
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .albums-card {
+    padding: 10px 10px 10px 0;
+  }
+}

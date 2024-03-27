@@ -1,0 +1,57 @@
+@import '../../helpers';
+
+.language-switcher {
+  display: flex;
+  height: 40px;
+  width: 80px;
+  @include d-flex(row, center, center, nowrap, 0px);
+
+  a {
+    padding: 10px;
+    overflow-wrap: break-word;
+    @include fontz(14px, 17px, 0.02em, uppercase, 500, white);
+    border: 2px solid transparent;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: white;
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid white;
+  }
+}
+
+@media (max-width: $md) {
+  .language-switcher {
+    width: 50px;
+    a {
+      padding: 5px;
+      @include fontz(10px, 14px, 0.02em, uppercase, 500, white);
+      height: 25px;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .language-switcher {
+    width: 50px;
+  }
+}
+
+@media (max-width: $sm) {
+  .header .header__right-block .language-switcher {
+    width: 40px;
+
+    a {
+      border: none;
+      @include fontz(14px, 14px, 0.02em, uppercase, 500, white);
+      padding-bottom: 20px;
+      height: 25px;
+      &.active{
+        display: none;
+      }
+    }
+  }
+}

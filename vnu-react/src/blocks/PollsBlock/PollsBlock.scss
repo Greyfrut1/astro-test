@@ -1,0 +1,124 @@
+@import '../../helpers';
+
+.poll-block {
+  .poll-item {
+    height: 500px;
+  }
+
+  .poll-item__button {
+    .poll-item__form-submit {
+      width: 13%;
+
+      &:hover,
+      &.hovered {
+        width: 15%;
+      }
+    }
+  }
+
+  .poll-item__form-submit.click {
+    width: 11%;
+  }
+}
+
+@media(max-width: $xxl) {
+  .poll-block {
+    .poll-item__button {
+      .poll-item__form-submit {
+        width: 12%;
+
+        &:hover,
+        &.hovered {
+          width: 14%;
+        }
+      }
+    }
+    .poll-item__form-submit.click {
+      width: 10%;
+    }
+    .poll-item {
+      &__button {
+        margin-top: 10px;
+      }
+
+      &__choice-item {
+        label {
+          @include fontz(16px, 18px, normal, none, 400, black);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $xl) {
+  .poll-block {
+    .poll-item {
+      height: 430px;
+
+      &__choice-item {
+        label {
+          @include fontz(14px, 15px, normal, none, 400, black);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $lg) {
+  .poll-block {
+    .poll-item {
+      height: 410px;
+      padding: 20px;
+
+      &__choice-item {
+        label {
+          padding: 5px 0;
+          @include fontz(14px, 15px, normal, none, 400, black);
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .poll-block {
+    .poll-item__button {
+      .poll-item__form-submit {
+        width:14%;
+        text-align:start;
+        padding:5px 15px;
+        &:hover,
+        &.hovered {
+          width: 13%;
+        }
+      }
+    }
+    .poll-item__form-submit.click {
+      width: 15%;
+    }
+    .poll-item__switch{
+      padding:5px 15px;
+    }
+    .poll-item {
+      height: 340px;
+    }
+  }
+}
+
+@media(max-width: 600px) {
+  .poll-block {
+    .poll-item__button {
+      .poll-item__form-submit {
+        width: 6%;
+
+        &:hover,
+        &.hovered {
+          width: 7%;
+        }
+      }
+    }
+    .poll-item__form-submit.click {
+      width: 5%;
+    }
+  }
+}

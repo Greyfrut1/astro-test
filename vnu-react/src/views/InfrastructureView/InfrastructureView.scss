@@ -1,0 +1,67 @@
+@import '../../helpers';
+
+.infrastructure-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding:50px 0;
+  justify-items: center;
+}
+
+.infrastructure-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  border: 3px solid transparent;
+  gap:20px;
+
+  &:hover {
+    transition: .2s ease;
+    border-bottom: 3px solid $darkRed;
+    border-left: 3px solid $darkRed;
+  }
+
+  &__info {
+    width: 60%;
+
+    &-title {
+      @include fontz(18px, 25px, 0.02em, capitalize, 800, black);
+      padding: 0 0 10px;
+    }
+    .contacts-item__location{
+      font-size:14px;
+    }
+  }
+
+  &__map {
+    width: 40%;
+    height:150px;
+  }
+}
+
+@media (max-width: $xl) {
+  .infrastructure-item {
+    &__map {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .infrastructure-item {
+    flex-direction: column;
+
+    &__info {
+      margin: 10px 0 0;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .infrastructure-view {
+    grid-template-columns: 1fr;
+  }
+}

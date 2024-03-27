@@ -1,0 +1,171 @@
+@import '../../helpers';
+
+.education-catalog-page {
+  &__title {
+    padding: 20px 0;
+    @include fontz(25px, 35px, 0.02rem, none, 800, black);
+    border-bottom: 2px solid $burgundy;
+    text-align: center;
+  }
+}
+
+.education-catalog-filter {
+  form {
+    background: $borderGray;
+    border: none;
+    margin: 20px 0;
+    padding: 15px;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    column-gap: 20px;
+    justify-content: stretch;
+
+    label {
+      display: inline-flex;
+      flex-direction: column;
+      @include fontz(15px, 15px, normal, none, 400, black);
+
+      select, input {
+        margin-top: 5px;
+        background: white;
+        height: 30px;
+        border: none;
+        border-radius: 3px;
+        padding: 5px;
+      }
+    }
+
+    button {
+      background: $burgundy;
+      padding: 0 15px;
+      border: none;
+      border-radius: 3px;
+      height: 30px;
+      @include fontz(15px, 25px, 0.02rem, capitalize, 600, white);
+    }
+  }
+}
+
+.education-catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__head {
+    th {
+      background: $darkRed;
+      font-size: 16px;
+    }
+  }
+
+  &__body {
+    tr {
+      box-shadow: 0 4px 8px rgba(59, 59, 59, 0.1);
+      border: none;
+      margin-bottom: 30px;
+    }
+
+    td {
+      overflow-wrap: anywhere;
+      @include fontz(15px, 20px, 0.02rem, none, 400, black);
+
+      a {
+        @include fontz(15px, 20px, 0.02rem, none, 400, $darkRed);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $xl) {
+  .education-catalog-page {
+    &__title {
+      @include fontz(20px, 25px, 0.02rem, none, 800, black);
+    }
+  }
+  .education-catalog-filter {
+    form {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .education-catalog-page {
+    &__title {
+      @include fontz(18px, 25px, 0.02rem, none, 800, black);
+    }
+  }
+  .education-catalog-filter {
+    form {
+      label {
+        select, input {
+          width: auto;
+          max-width: 100%;
+        }
+      }
+
+      .filter-faculty {
+        width: 50%;
+      }
+    }
+  }
+
+  .education-catalog-table {
+    &__head {
+      th {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+      }
+    }
+
+    &__body {
+      tr {
+        margin-bottom: 15px;
+
+        td {
+          display: block;
+          text-align: center;
+          box-sizing: border-box;
+          border-bottom: 1px solid $borderGray;
+
+          &:before {
+            content: attr(data-label);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .education-catalog-filter {
+    form {
+      label {
+        width: 500px;
+        max-width: 100%;
+      }
+
+      .filter-faculty {
+        width: 500px;
+        max-width: 100%;
+      }
+
+      button {
+        padding: 0 15px;
+        height: 30px;
+        margin: 0 auto;
+        @include fontz(16px, 25px, 0.02rem, capitalize, 400, white);
+      }
+    }
+  }
+}

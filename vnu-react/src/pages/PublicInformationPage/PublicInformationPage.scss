@@ -1,0 +1,90 @@
+@import '../../helpers';
+
+.public-information {
+  padding: 50px 0;
+}
+
+.information-view {
+  @include d-flex(column, flex-start, center, nowrap, 20px);
+
+  &__items {
+    @include d-flex(column, flex-start, center, nowrap, 10px);
+    padding: 20px 0;
+    max-width: 1000px;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 3px;
+      margin-top: 10px;
+      width: 0;
+      background: transparent;
+      transition: width 0.5s ease, background-color 0.5s ease;
+    }
+
+    &:hover:after {
+      width: 100%;
+      background: $darkRed;
+    }
+
+    &-title {
+      text-align: center;
+      @include fontz(30px, 45px, 0.02rem, none, 600, black);
+    }
+
+    &-body {
+      text-align: center;
+      @include fontz(15px, 20px, 0.02rem, none, 400, black);
+    }
+
+    &-button {
+      background: $darkRed !important;
+      transition: 0.5s ease;
+      padding: 12px 25px;
+      border: 1px solid $darkRed;
+      margin-top: 20px;
+
+      a {
+        @include fontz(15px, 23px, 0.02rem, none, 600, white);
+        font-style: normal;
+      }
+
+      &:hover {
+        background: transparent !important;
+
+        a {
+          color: $darkRed;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .information-view {
+    &__items {
+      &-title {
+        @include fontz(25px, 25px, 0.02rem, none, 600, black);
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .information-view {
+    &__items {
+      &-title {
+        @include fontz(20px, 25px, 0.02rem, none, 600, black);
+      }
+
+      &-body {
+        @include fontz(14px, 20px, 0.02rem, none, 400, black);
+      }
+
+      &-button {
+        @include fontz(12x, 23px, 0.02rem, none, 600, white);
+        padding: 5px 20px;
+      }
+    }
+  }
+}

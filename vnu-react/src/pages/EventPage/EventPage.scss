@@ -1,0 +1,120 @@
+@import '../../helpers';
+
+.events {
+  .react-tabs__tab-list {
+    border-bottom: 2px solid $burgundy !important;
+  }
+
+  .react-tabs {
+    padding: 50px 0;
+  }
+
+  .react-tabs__tab {
+    margin-right: 20px;
+    border-radius: 6px 6px 0 0;
+    border: 2px solid $burgundy;
+    background: $burgundy;
+    color: white;
+    padding: 5px 44px;
+    @include fontz(20px, 35px, 0.05em, none, 700, white);
+  }
+
+  .react-tabs__tab--selected {
+    @include fontz(20px, 37px, 0.05em, none, 700, $burgundy);
+    background: transparent;
+    border-bottom: none;
+
+    &:after, &:focus:after {
+      content: "";
+      position: absolute;
+      height: 6px;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      background: white;
+    }
+  }
+
+  .events-calendar__link-all-events {
+    float: right;
+    display: inline-flex;
+    align-items: center;
+    @include fontz(20px, 35px, 0.05em, none, 700, $burgundy);
+
+    svg {
+      margin-left: 5px;
+      transition: transform .3s ease-out;
+    }
+
+    &:hover {
+      color: black;
+
+      svg {
+        color: black;
+        transform: translateX(5px);
+      }
+    }
+  }
+}
+
+@media(max-width: $lg) {
+  .events {
+    .react-tabs__tab {
+      padding: 5px 30px;
+      margin-right: 10px;
+      @include fontz(18px, 35px, 0.05em, none, 700, white);
+    }
+
+    .react-tabs__tab--selected {
+      @include fontz(18px, 37px, 0.05em, none, 700, $burgundy);
+    }
+
+    .events-calendar__link-all-events {
+      @include fontz(18px, 35px, 0.05em, none, 700, $burgundy);
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .events {
+    .react-tabs__tab {
+      padding: 0 8px;
+      @include fontz(15px, 35px, 0.05em, none, 700, white);
+    }
+
+    .react-tabs {
+      padding: 20px 0;
+    }
+
+    .react-tabs__tab--selected {
+      @include fontz(15px, 37px, 0.05em, none, 700, $burgundy);
+    }
+
+    .events-calendar__link-all-events {
+      width: 100%;
+      margin-bottom: 25px;
+      @include fontz(20px, 35px, 0.05em, none, 700, $burgundy);
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .events {
+    .react-tabs__tab {
+      padding: 0 8px;
+      @include fontz(12px, 35px, 0.05em, none, 700, white);
+    }
+
+    .react-tabs {
+      padding: 20px 0;
+    }
+
+    .react-tabs__tab--selected {
+      @include fontz(12px, 37px, 0.05em, none, 700, $burgundy);
+    }
+
+    .events-calendar__link-all-events {
+      @include fontz(18px, 35px, 0.05em, none, 700, $burgundy);
+    }
+  }
+}

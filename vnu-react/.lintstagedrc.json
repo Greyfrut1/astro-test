@@ -1,0 +1,4 @@
+{
+  "*.{js,jsx,csj,mjs,ts,tsx}": ["eslint --fix"],
+  "*.{scss}": ["stylelint --allow-empty-input --fix"]
+}

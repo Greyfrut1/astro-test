@@ -1,0 +1,104 @@
+@import '../../helpers';
+
+.news {
+  .menu-dynamic-data-blocks {
+    @include d-flex(row, space-between, normal, nowrap, 0px);
+    padding: 15px 5px 25px 5px;
+    border-bottom: 2px solid $burgundy;
+    margin-bottom: 35px;
+    @media (max-width: 1199px) {
+      margin-top: 30px;
+      padding: 5px;
+    }
+    @media (max-width: 730px) {
+      flex-direction: column;
+      border-bottom: none;
+    }
+
+    &__title {
+      color: $burgundy;
+      @media (max-width: 730px) {
+        font-size: 25px;
+        margin-bottom: 20px;
+      }
+    }
+
+    &__left {
+      @include d-flex(row, flex-start, center, nowrap, 20px);
+      position: relative;
+      @media (max-width: 730px) {
+        flex-direction: column;
+        background: $ultraLightGray;
+        padding: 15px 20px 30px 20px;
+      }
+    }
+  }
+
+  .dynamic-data-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 73px;
+    grid-column-gap: 86px;
+    margin-bottom: 50px;
+    @media (max-width: 1200px) {
+      grid-row-gap: 45px;
+      grid-column-gap: 55px;
+    }
+    @media (max-width: 1000px) {
+      grid-row-gap: 20px;
+      grid-column-gap: 30px;
+    }
+    @media (max-width: 850px) {
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 20px;
+      grid-column-gap: 30px;
+    }
+    @media (max-width: 599px) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 0;
+      grid-column-gap: 0;
+      margin-bottom: 30px;
+    }
+    position: relative;
+    min-height: 500px;
+
+    svg[aria-label="loading"] {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      top: 50%;
+    }
+
+    .news-card {
+      max-width: 392px;
+      @media (max-width: 599px) {
+        max-width: none;
+        padding-bottom: 20px;
+        border-bottom: 1px solid black;
+        margin-bottom: 20px;
+      }
+
+      &-bottom {
+        padding-left: 5px;
+
+        .date_field {
+          @include fontz(16px, normal, normal, none, 400, black);
+          padding: 13px 0;
+        }
+
+        .teaser_title {
+          @include fontz(18px, normal, normal, none, 600, black);
+
+          a {
+            @include underline-hover(black);
+          }
+        }
+      }
+    }
+  }
+
+  .empty-dynamic-container {
+    padding-left: 45px;
+    @include fontz(18px, normal, normal, none, 700, black);
+  }
+}

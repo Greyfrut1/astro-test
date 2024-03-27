@@ -1,0 +1,44 @@
+@import '../../helpers';
+
+.footer{
+  background: $darkRed;
+  &-top{
+    display: grid;
+    grid-template-columns:30% 70%;
+    &.container{
+      padding:0;
+    }
+  }
+}
+@media(max-width: $xxl){
+  .footer{
+    &-top{
+      grid-template-columns:25% 75%;
+    }
+  }
+}
+@media(max-width: $xl){
+  .footer{
+    &-top{
+      grid-template-columns:30% 70%;
+    }
+  }
+}
+@media(max-width: $lg){
+  .footer{
+    &-top{
+      display: flex;
+      gap:30px;
+      flex-direction: row!important;
+    }
+  }
+}
+@media(max-width: 650px){
+  .footer{
+    margin-top:20px;
+    &-top{
+      gap:0;
+      flex-direction: column!important;
+    }
+  }
+}

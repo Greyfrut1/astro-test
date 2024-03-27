@@ -1,0 +1,39 @@
+@import '../../helpers';
+
+.facebook-block {
+  .fb-page,
+  .fb-page span,
+  .fb-page span iframe[style] {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: $xl) {
+  .facebook-block {
+    .fb-page,
+    .fb-page span,
+    .fb-page span iframe[style] {
+      max-height: 430px !important;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .facebook-block {
+    .fb-page,
+    .fb-page span,
+    .fb-page span iframe[style] {
+      max-height: 410px !important;
+    }
+  }
+}
+
+@media(max-width: 600px), (max-width: $sm), (max-width: $md) {
+  .facebook-block {
+    .fb-page,
+    .fb-page span,
+    .fb-page span iframe[style] {
+      max-height: 340px !important;
+    }
+  }
+}

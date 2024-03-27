@@ -1,0 +1,73 @@
+@import "../../helpers";
+
+.department-page{
+  padding: 50px 15px;
+  .department-page__top-block{
+    display: flex;
+    column-gap: 10px;
+    .department-page__image-block{
+      min-width: fit-content;
+    }
+    .department-page__top-right{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .department-page__title{
+        font-size: 20px;
+        font-weight: bolder;
+      }
+      .department-page__staff-position{
+        font-size: 15px;
+        line-height: 21px;
+        color: $darkRed;
+        display: flex;
+        flex-direction: column;
+        font-weight: bolder;
+        row-gap: 15px;
+        a{
+          font-weight: normal;
+        }
+      }
+      .contacts{
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+        margin-top: 15px;
+        a{
+          font-size: 14px;
+          line-height: 16px;
+        }
+        .contacts-item{
+          align-items: center;
+          a{
+            align-items: center;
+          }
+        }
+        svg{
+          max-height: 16px;
+        }
+      }
+    }
+  }
+  .department-page__description{
+    margin-top: 15px;
+  }
+  .social_media{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    column-gap: 15px;
+    svg{
+      width: 25px;
+      height: auto;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .department-page .department-page__top-block{
+    flex-direction: column;
+    .department-page__image{
+      width: auto;
+    }
+  }
+}

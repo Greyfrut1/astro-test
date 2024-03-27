@@ -1,0 +1,69 @@
+@import '../../helpers';
+
+.staff-view {
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+
+  .staff-item {
+    @include d-flex(column, flex-start, flex-start, nowrap, 15px);
+
+    img {
+      max-width: 125px;
+      max-height: 165px;
+    }
+
+    &__title {
+      @include fontz(20px, 20px, normal, none, 500, black);
+    }
+
+    &__position {
+      @include fontz(16px, 20px, normal, none, 400, black);
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .staff-view {
+    .staff-item {
+      border: 1px solid $borderGray;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 350px;
+
+      img {
+        margin: 0 auto;
+      }
+
+      &__title {
+        @include fontz(18px, 25px, normal, capitalize, 500, black);
+      }
+
+      &__position {
+        @include fontz(14px, 20px, normal, none, 400, black);
+      }
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  .staff-view {
+    padding: 20px 0;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+
+    .staff-item {
+
+      &__title {
+        @include fontz(16px, 25px, normal, capitalize, 500, black);
+      }
+
+      &__position {
+        @include fontz(14px, 18px, normal, none, 400, black);
+      }
+    }
+  }
+
+}

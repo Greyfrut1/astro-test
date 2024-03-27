@@ -1,0 +1,92 @@
+@import '../../helpers';
+
+.news {
+  &-info {
+    @include d-flex(column, flex-start, stretch, nowrap, 20px);
+    padding: 50px 0;
+
+    &__title {
+      @include fontz(25px, normal, normal, none, 600, black);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &__img {
+      margin: 10px auto;
+    }
+
+    &__description {
+      text-align: justify;
+
+      p, a, span {
+        @include fontz(18px, 25px, normal, inherit, 400, black);
+      }
+
+      img {
+        object-fit: contain;
+        height: auto;
+        margin: 10px auto;
+        display: block;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+
+    &__bottom {
+      background: $ultraLightGray;
+      @include d-flex(row, space-between, center, nowrap, 10px);
+      height: 50px;
+      padding: 10px 25px;
+
+      .counter-block {
+        @include fontz(20px, 20px, normal, none, 600, $darkRed);
+
+        &:hover {
+          color: black;
+        }
+      }
+
+      .share-link {
+        svg {
+          color: $darkRed;
+          font-size: 29px;
+          margin: 0 5px;
+
+          &:hover {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .news {
+    &-info {
+      &__title {
+        @include fontz(20px, normal, normal, lowercase, 600, black);
+      }
+
+      &__description {
+        p, a, span {
+          @include fontz(16px, 25px, normal, inherit, 400, black);
+        }
+      }
+
+      &__bottom {
+        .counter-block {
+          @include fontz(16px, 20px, normal, none, 600, $darkRed);
+        }
+
+        .share-link {
+          svg {
+            font-size: 23px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@import '../../helpers';
+
+.ukraine-above-all {
+  &__title {
+    @include fontz(25px, 25px, 0.02em, none, 700, $burgundy);
+    text-align: center;
+  }
+
+  &__item {
+    width: 440px;
+    height: 232px;
+    position: relative;
+
+    &-title {
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+      padding: 10px;
+      @include fontz(18px, 20px, 0.02em, uppercase, 500, $borderGray);
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      margin-right: 15px;
+      box-sizing: border-box;
+
+      &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .5);
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      box-sizing: content-box;
+      color: $borderGray;
+      left: -15px;
+      top: -15px;
+      padding: 5px;
+      background-color: $lightRed;
+      transition: all 3s ease;
+
+      &:hover {
+        background-color: $darkRed;
+      }
+    }
+  }
+
+  &__view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    gap: 50px;
+    padding: 50px 0;
+  }
+}
+
+@media(max-width: $xl) {
+  .ukraine-above-all {
+    margin: 50px 0;
+
+    &__item {
+      width: 400px;
+      height: 210px;
+    }
+  }
+}
+
+@media(max-width: 900px) {
+  .ukraine-above-all {
+    &__item {
+      width: 350px;
+      height: 185px;
+    }
+  }
+}
+
+@media(max-width: $md) {
+  .ukraine-above-all {
+    &__title {
+      @include fontz(20px, 25px, 0.02em, none, 700, $burgundy);
+    }
+
+    &__view {
+      align-items: center;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    &__item {
+      width: 440px;
+      height: 232px;
+    }
+  }
+}
+
+@media(max-width: $sm) {
+  .ukraine-above-all {
+    &__item {
+      width: 250px;
+      height: 172px;
+    }
+  }
+}

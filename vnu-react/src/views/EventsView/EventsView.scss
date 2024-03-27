@@ -1,0 +1,167 @@
+@import '../../helpers';
+
+.event-no-results {
+  margin-top: 20px;
+  @include fontz(18px, 25px, normal, inherit, 600, black);
+}
+
+.events-item {
+  display: grid;
+  grid-template-columns: 10% 55% 20%;
+  gap: 100px;
+  border-bottom: 2px solid $burgundy;
+  padding: 50px 0;
+
+  p {
+    margin: 0;
+  }
+
+  &__start {
+    @include d-flex(column, center, center, nowrap, 5px);
+
+    &-date {
+      @include fontz(25px, 35px, 0.01em, none, 800, $burgundy);
+    }
+
+    &-month {
+      @include fontz(25px, 35px, 0.02em, capitalize, 600, black);
+    }
+  }
+
+  &__info {
+    @include d-flex(column, center, flex-start, nowrap, 20px);
+    max-width: 700px;
+    margin-left: 100px;
+
+    &-title p {
+      display: inline;
+      @include underline-hover(black);
+      @include fontz(23px, 35px, normal, inherit, 700, black);
+    }
+
+    &-location {
+      @include d-flex(row, flex-start, center, nowrap, 5px);
+
+      svg {
+        color: $borderGray;
+        width: 20px;
+      }
+    }
+
+    &-description,
+    &-location a {
+      @include fontz(18px, 25px, normal, inherit, 500, black);
+    }
+  }
+
+  &__time {
+    text-align: right;
+    font-family: $generalFont !important;
+    @include fontz(25px, 35px, normal, inherit, 600, black);
+  }
+}
+@media (max-width: $xxl) {
+  .events-item {
+    gap: 70px;
+    &__info {
+     margin-left:50px;
+    }
+  }
+}
+@media (max-width: $xl) {
+  .events-item {
+    &__info {
+      margin:0;
+    }
+  }
+}
+
+@media (max-width: $lg) {
+  .events-item {
+    gap:65px;
+    &__start {
+      &-date {
+        @include fontz(20px, 35px, 0.01em, none, 800, $burgundy);
+      }
+
+      &-month {
+        @include fontz(20px, 35px, 0.02em, capitalize, 600, black);
+      }
+    }
+
+    &__info {
+      max-width: 550px;
+
+      &-title p {
+        @include fontz(20px, 35px, normal, inherit, 700, black);
+      }
+
+      &-description,
+      &-location a {
+        @include fontz(16px, 25px, normal, inherit, 500, black);
+      }
+    }
+
+    &__time {
+      @include fontz(20px, 35px, normal, inherit, 600, black);
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .events-item {
+    @include d-flex(column, center, flex-start, nowrap, 0px);
+    width: 100%;
+    padding: 20px 0;
+
+    &__start {
+      flex-direction: row;
+
+      &-date {
+        @include fontz(18px, 35px, 0.01em, none, 800, $burgundy);
+        margin: 0 10px;
+      }
+
+      @include fontz(18px, 35px, 0.02em, capitalize, 600, black);
+    }
+
+    &__info {
+      max-width: 100%;
+
+      &-title p {
+        @include fontz(18px, 25px, normal, inherit, 700, black);
+      }
+
+      &-description {
+        @include fontz(16px, 25px, normal, inherit, 500, black);
+      }
+      &-location a{
+        @include fontz(14px, 25px, normal, inherit, 500, black);
+      }
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .events-item {
+    &__start {
+      &-date {
+        @include fontz(15px, 35px, 0.01em, none, 800, $burgundy);
+      }
+
+      @include fontz(15px, 35px, 0.02em, capitalize, 600, black);
+    }
+
+    &__info {
+      &-title p {
+        @include fontz(16px, 25px, normal, inherit, 700, black);
+      }
+      &-description {
+        @include fontz(14px, 25px, normal, inherit, 500, black);
+      }
+      &-location a{
+        @include fontz(12px, 20px, normal, inherit, 500, black);
+      }
+    }
+  }
+}

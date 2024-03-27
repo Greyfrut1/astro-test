@@ -1,0 +1,72 @@
+@import '../../helpers';
+.educations-program{
+  margin:20px auto;
+  &__title{
+    @include fontz(25px, 45px, normal, none, 600,black);
+  }
+}
+.educations-program__main{
+  display: grid;
+  grid-template-columns: 55% 40%;
+  gap:40px;
+  margin:30px 0;
+  &-left{
+    .paragraphs{
+      padding-top: 0;
+    }
+  }
+  &-right{
+    &__title{
+      @include fontz(20px, 45px, normal, none, 600,$burgundy);
+    }
+    .file{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap:5px;
+      svg{
+        width:15px;
+      }
+      a{
+        @include fontz(14px, 24px, normal, none, 400, black);
+      }
+    }
+    &__point{
+      display: flex;
+      flex-direction: column;
+      margin:20px 0;
+    }
+    h4{
+      @include fontz(16px,normal, normal, none, 600, black);
+    }
+    hr{
+      color:$borderGray;
+      margin: 5px 0;
+      height:1px;
+    }
+    p,a{
+      @include fontz(12px, 24px, normal, none, 400, black);
+      margin:0;
+    }
+    a{
+      text-decoration: underline;
+    }
+  }
+}
+
+@media(max-width: $lg){
+  .educations-program__main{
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media(max-width: $md){
+  .educations-program{
+    &__title{
+      @include fontz(20px, 30px, normal, none, 600,black);
+    }
+  }
+  .educations-program__main{
+   margin:10px 0;
+  }
+}
