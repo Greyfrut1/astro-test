@@ -1,0 +1,44 @@
+---
+import { getArticleById, getAllArticles } from '../../lib/drupal';
+
+export async function getStaticPaths() {
+  let articles;
+  try {
+    articles = await getAllArticles();
+  } catch (err) {
+    console.error('Failed to fetch articles:', err);
+    return [];
+  }
+
+  const paths = articles.map((article) => ({
+    params: { slug: article.id.toString() },
+    props: { id: article.id.toString() },
+  }));
+
+  console.log('Generated paths:', paths);
+  return paths;
+}
+console.log('ddddddddddddddddddddddddddddddddddddddddddddd')
+
+console.log('params:', Astro.params)
+const { id } = Astro.props;
+console.log(Astro.props)
+let article;
+
+try {
+  article = await getArticleById(id);
+} catch (err) {
+  console.error(`Failed to fetch article ${id}:`, err);
+  return Astro.redirect('/404');
+}
+console.log('article:', article)
+---
+
+<html>
+  <head>
+    <title>{article.attributes.title}</title>
+  </head>
+  <body>
+    <h1>{article.attributes.title}</h1>
+  </body>
+</html>
